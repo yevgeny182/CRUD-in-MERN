@@ -11,7 +11,7 @@ VsCode
 > To create server
 >> create server folder
 >> install npm init, 
->> npm i mongoose
->> <b> cors
+>> npm i <b> mongoose
+>>  cors
 >> express
 >> nodemon </b>
