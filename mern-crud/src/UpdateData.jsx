@@ -1,6 +1,6 @@
 import React from "react";
 
-function updateData(){
+function UpdateData(){
     return(
         <div>
             update data!
@@ -8,4 +8,4 @@ function updateData(){
     )
 }
 
-export default updateData;
+export default UpdateData;

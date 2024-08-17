@@ -1,37 +1,48 @@
-import React from "react";
-import Table from "react-bootstrap/Table"
+import React, { useState } from "react";
+import Table from "react-bootstrap/Table";
+import toast from 'react-hot-toast'
+import AddIcon from '@mui/icons-material/Add';
 
-function readData(){
-    return(
-        <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-            <div className="w-50 bg-white rounded p-3">
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>data1</th>
-              <th>data2</th>
-              <th>data3</th>
-              <th>actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Rows will go here */}
-            <tr>
-             {/*  <td>Example 1</td>
-              <td>Example 2</td>
-              <td>Example 3</td> */}
-              <td>
-                <button className="btn btn-primary">Action</button>
-              </td>
-            </tr>
-            {/* Add more rows as needed */}
-          </tbody>
-        </Table>   
+function Data() {
+  const [data, setData] = useState([
+    { data1: 'test', data2: 'testing', data3: 'lmao' }
+  ]);
 
-            </div>
-           
-        </div>
-    )
+  return (
+
+    <div className='w-full'>
+    <div className="d-flex justify-content-start mb-3">
+      <button className="btn btn-success" >
+      <AddIcon /> 
+      Create</button>
+    </div>
+    
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>data1</th>
+          <th>data2</th>
+          <th>data3</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((retVal, index) => (
+          <tr key={index}>
+            <td>{retVal.data1}</td>
+            <td>{retVal.data2}</td>
+            <td>{retVal.data3}</td>
+            <td>
+              <button className="btn btn-primary mx-1">Update</button>
+              <button className="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  </div>
+
+  );
 }
 
-export default readData;
+export default Data;
