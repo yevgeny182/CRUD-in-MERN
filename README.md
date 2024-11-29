@@ -15,3 +15,8 @@ VsCode
 >>  cors
 >> express
 >> nodemon </b>
+
+> To create mongodb database
+>> create project and cluster via mongodb
+>> connect cluster to server files using mongodb URI 
+>> define server and models check this repo and folder (mern-stack-crud) and follow process
