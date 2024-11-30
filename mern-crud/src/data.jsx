@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import AddIcon from '@mui/icons-material/Add';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Data() {
   const [data, setData] = useState([
-    { data1: 'test', data2: 'testing', data3: 'lmao' }
+    //{ data1: 'test', data2: 'testing', data3: 'lmao' }
   ]);
 
   const clickUpdate = () =>{
@@ -18,6 +19,12 @@ function Data() {
     toast.warn("Delete your data? ")
   }
   
+  useEffect(() =>{
+    axios.get('http://localhost:3001')
+    .then(result => 
+      setData(result.data)
+    )
+  }, [])
 
   return (
 
@@ -51,6 +58,8 @@ function Data() {
         ))}
       </tbody>
     </Table>
+
+
     <ToastContainer
       position="top-right"
       autoClose={3000}
